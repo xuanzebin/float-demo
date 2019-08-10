@@ -6,6 +6,4 @@
 .popover.active{    display:block;}
 .popover::before{    content:'';    position:absolute;    border:12px solid transparent;    border-right-color: red;    top:8px;    right:100%;}
 .popover::after{     content:'';    position:absolute;    border:10px solid transparent;    border-right-color:white;    top:10px;    right:100%;}
-#buttonSwitch{
-    line-height:30px;
-}
+#buttonSwitch{ line-height:30px;}

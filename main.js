@@ -1,6 +1,6 @@
-let $buttonTag=$(".wrapper>button")
+let $buttonTag=document.querySelector(".wrapper>button")
 let switchCheck=true
-$buttonTag.eq(0).on('click',function(){
+$buttonTag.addEventListener('click',function(){
     if (switchCheck) {
         buttonSwitch.textContent="点击关闭浮层"
         popover.style.display="block"
@@ -10,12 +10,14 @@ $buttonTag.eq(0).on('click',function(){
         popover.style.display="none"
         switchCheck=true
     }
-    $(document).one('click',function(){
+    let clickDocument = function(){
         popover.style.display="none"
         buttonSwitch.textContent="点击打开浮层" 
         switchCheck=true
-    })
+        document.removeEventListener('click',clickDocument)
+    }
+    document.addEventListener('click', clickDocument)
 })
-$('.wrapper').on('click',function(preventBubble){
+document.querySelector('.wrapper').addEventListener('click',function(preventBubble){
     preventBubble.stopPropagation()
 })
